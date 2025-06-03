@@ -1,7 +1,7 @@
 {
   "name": "twinmind-backend",
   "version": "1.0.0",
-  "description": "Express backend for TwinMind RN app (audio chunks, transcripts, chat, summaries) deployed on Vercel",
+  "description": "Stub Express backend for TwinMind RN app, deployed on Vercel",
   "main": "api/index.js",
   "scripts": {
     "start": "node api/index.js"
