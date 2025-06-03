@@ -8,11 +8,10 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json({ limit: '10mb' }));
 
-// In-memory data stores:
 const audioChunksStore = {};
 const transcriptStore = {};
 
-// 1) POST  /audio-chunks
+// 1) POST /audio-chunks
 app.post('/audio-chunks', (req, res) => {
   const { userId = 'anonymous', filename, base64Audio, timestamp } = req.body;
   if (!filename || !base64Audio) {
@@ -24,7 +23,7 @@ app.post('/audio-chunks', (req, res) => {
   res.json({ status: 'ok' });
 });
 
-// 2) POST  /transcripts
+// 2) POST /transcripts
 app.post('/transcripts', (req, res) => {
   const { userId = 'anonymous', segments } = req.body;
   if (!Array.isArray(segments)) {
@@ -36,14 +35,14 @@ app.post('/transcripts', (req, res) => {
   res.json({ status: 'ok' });
 });
 
-// 3) GET  /transcripts/:userId
+// 3) GET /transcripts/:userId
 app.get('/transcripts/:userId', (req, res) => {
   const { userId } = req.params;
   const segments = transcriptStore[userId] || [];
   res.json({ segments });
 });
 
-// 4) POST  /chat  (stub)
+// 4) POST /chat (stub)
 app.post('/chat', (req, res) => {
   const { userId = 'anonymous', transcriptSegments, userQuery } = req.body;
   console.log(`[chat] '${userId}' asked: "${userQuery}"`);
@@ -51,7 +50,7 @@ app.post('/chat', (req, res) => {
   res.json({ botResponse: fakeResponse });
 });
 
-// 5) POST  /summaries  (stub)
+// 5) POST /summaries (stub)
 app.post('/summaries', (req, res) => {
   const { userId = 'anonymous', transcriptSegments } = req.body;
   console.log(`[summaries] generating for '${userId}'`);
@@ -64,5 +63,5 @@ app.post('/summaries', (req, res) => {
   res.json({ summary: fakeSummary });
 });
 
-// Export as a Vercel serverless function
+// Export as a serverless function
 module.exports = serverless(app);
