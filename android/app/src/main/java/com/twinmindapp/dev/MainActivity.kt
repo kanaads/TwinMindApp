@@ -1,4 +1,4 @@
-package com.twinmindnewmind
+package com.twinmindapp.dev
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate

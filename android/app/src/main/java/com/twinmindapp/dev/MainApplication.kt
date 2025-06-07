@@ -1,5 +1,6 @@
-package com.twinmindnewmind
+package com.twinmindapp.dev
 
+import com.twinmindapp.dev.BuildConfig
 import android.app.Application
 import com.facebook.react.PackageList
 import com.facebook.react.ReactApplication
