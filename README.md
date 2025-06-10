@@ -28,7 +28,7 @@ A React Native application for continuously capturing, transcribing, and managin
 - **Authentication**  
   Google Sign-In with token persistence in AsyncStorage; auto-login on app launch.
 
-- **Backend Stubs**  
+- **Backend**  
   Firebase Functions (Express) endpoints for `/audio-chunks`, `/transcripts`, `/chat`, `/summaries`.
 
 ---
